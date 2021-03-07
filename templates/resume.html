@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block social %}
+
+<div class="header-social-links">
+    <a href="{{ social.twitter }}" class="twitter"><i class="icofont-twitter"></i></a>
+    <a href="{{ social.fb }}" class="facebook"><i class="icofont-facebook"></i></a>
+    <a href="{{ social.instagram }}" class="instagram"><i class="icofont-instagram"></i></a>
+    <a href="{{ social.linkedin }}" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+</div>
+
+{% endblock  %}
+
+{% block content %}
+<div class="container mt-5 col-md-10">
+    <main id="main">
+
+        <!-- ======= Resume Section ======= -->
+        <section id="resume" class="resume">
+          <div class="container" data-aos="fade-up">
+    
+            <div class="section-title">
+              <h2>Resume</h2>
+              <p></p>
+            </div>
+    
+            <div class="row">
+              <div class="col-lg-6">
+                <h3 class="resume-title">Sumary</h3>
+
+                <div class="resume-item pb-0">
+                  <h4>{{ summary.name }}</h4>
+                  <p><em>{{ summary.introduction }}</em></p>
+                  <p>
+                  
+                  <ul>
+                    <li>{{ about_me.city }}</li>
+                    <li>{{ about_me.phone }}</li>
+                    <li>{{ about_me.email }}</li>
+                  </ul>
+                  
+                  </p>
+                </div>
+                
+    
+                <h3 class="resume-title">Education</h3>
+                {% for i in education %}
+                <div class="resume-item">
+                  <h4>{{ i.title }}</h4>
+                  <h5>{{ i.start_date }} - {{ i.end_date }}</h5>
+                  <p><em>{{ i.city }}</em></p>
+                  <p>{{ i.description }}</p>
+                </div>
+                {% endfor %}
+              </div>
+              <div class="col-lg-6">
+                <h3 class="resume-title">Professional Experience</h3>
+                {% for i in pro_exp %}
+                <div class="resume-item">
+                  <h4>{{ i.title | title }}</h4>
+                  <h5>{{ i.start_date }} - {{ i.end_date }}</h5>
+                  <p><em>{{ i.city }} </em></p>
+                  <p>
+                  <ul>
+                    <li>{{ i.description }}</li>
+                  </ul>
+                  </p>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+    
+          </div>
+        </section><!-- End Resume Section -->
+    </main><!-- End #main -->
+</div>
+{% endblock %}
